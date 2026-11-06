@@ -3,16 +3,16 @@
  * ENVIO F-LOG AUTO
  * Configuração da versão demonstrativa para portfólio.
  *
- * ATENÇÃO:
- * Utilize identificadores e dados fictícios nesta versão.
- * Configure seus próprios serviços antes de executar.
+ * Todos os dados são fictícios.
+ * Configure um formulário e participantes de teste
+ * antes de executar qualquer integração.
  */
 
 const CONFIG = {
   NOME_PROJETO: 'ENVIO F-LOG AUTO - DEMONSTRACAO',
 
   FORMULARIO: {
-    ID: 'INSIRA_SEU_ID_DE_FORMULARIO_DE_TESTE'
+    ID: 'INSIRA_O_ID_DO_SEU_FORMULARIO_DE_TESTE'
   },
 
   EMAILS: {
@@ -36,24 +36,38 @@ const CONFIG = {
 
   FORMULARIO_PADRAO: {
     ANO: '2026',
-    CATEGORIA: 'DEMONSTRACAO',
-    RESPONSAVEL: 'Participante A'
+    CORRETORA: 'CORRETORA DEMONSTRATIVA',
+    PRODUTOR: 'Participante A',
+    SEGMENTO: 'Demonstracao',
+    AGENCIA: 'AGENCIA TESTE'
   },
 
+  // IDs fictícios. Substituir pelos IDs de um
+  // formulário próprio de demonstração.
   CAMPOS_FORMULARIO: {
-    DATA: 0,
-    MES: 0,
-    ANO: 0,
-    CATEGORIA: 0,
-    RESPONSAVEL: 0,
-    PRODUTO_1: 0,
-    PRODUTO_2: 0,
-    PRODUTO_3: 0
+    DATA: 1001,
+    MES: 1002,
+    ANO: 1003,
+    CORRETORA: 1004,
+    PRODUTOR: 1005,
+    SEGMENTO: 1006,
+    AGENCIA: 1007,
+    VIDA_UNICO_ANUAL: 1008,
+    VIDA_MENSAL: 1009,
+    DENTAL_PJ: 1010,
+    SAUDE: 1011,
+    AUTO: 1012,
+    RE: 1013,
+    SWISS_RE: 1014
   },
 
   PRODUTOS: [
-    'PRODUTO_1',
-    'PRODUTO_2',
-    'PRODUTO_3'
+    'VIDA_UNICO_ANUAL',
+    'VIDA_MENSAL',
+    'DENTAL_PJ',
+    'SAUDE',
+    'AUTO',
+    'RE',
+    'SWISS_RE'
   ]
 };
