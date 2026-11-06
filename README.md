@@ -1,107 +1,99 @@
 # ENVIO F-LOG AUTO
 
-**Automação de registro e envio diário de produção utilizando Google Apps Script.**
+**Automação de processos com Google Apps Script, JavaScript, Gmail e Google Forms.**
 
 ## Sobre o projeto
 
-O ENVIO F-LOG AUTO é um projeto de automação desenvolvido para simplificar e padronizar o processo diário de coleta, validação e registro de produção em um Google Forms.
+O ENVIO F-LOG AUTO é um projeto demonstrativo de automação desenvolvido com Google Apps Script.
 
-A solução utiliza Google Apps Script para integrar Gmail e Google Forms, reduzindo tarefas manuais e prevenindo inconsistências e envios duplicados.
+A solução automatiza etapas de coleta, interpretação, validação e registro de informações recebidas por e-mail, integrando serviços do Google.
 
-## Objetivos
+O objetivo é demonstrar como processos manuais podem ser transformados em fluxos automatizados, organizados e confiáveis.
 
-- Automatizar o lembrete diário de produção.
-- Coletar respostas por e-mail.
-- Identificar o participante responsável conforme regras de prioridade.
-- Validar os produtos e seus respectivos valores.
-- Preparar automaticamente os dados para o Google Forms.
-- Registrar produção zerada quando não houver respostas.
-- Impedir envios duplicados.
-- Notificar os participantes quando houver respostas inválidas.
+> Esta versão é destinada a portfólio e utiliza dados fictícios. Não contém integrações, identificadores ou informações confidenciais do ambiente original.
+
+## Funcionalidades
+
+- Envio automatizado de lembretes por e-mail.
+- Leitura e identificação de respostas recebidas.
+- Seleção de respostas conforme regras de prioridade.
+- Interpretação e validação de dados.
+- Integração com Google Forms.
+- Tratamento de respostas inválidas.
+- Notificações de inconsistências.
+- Controle de execução e prevenção de duplicidade.
+- Modo de simulação para testes.
 
 ## Tecnologias utilizadas
 
-- Google Apps Script
 - JavaScript
+- Google Apps Script
 - GmailApp
 - FormApp
 - Google Forms
-- Google Sheets / Script Properties
-- Time-based Triggers
+- PropertiesService
 - LockService
+- Time-based Triggers
 
-## Funcionamento
+## Fluxo de funcionamento
 
-1. O sistema programa um lembrete diário às 16h15.
-2. Os participantes respondem ao e-mail utilizando o formato estabelecido.
-3. Às 16h30, o sistema encerra a coleta.
-4. As respostas são analisadas conforme as regras de prioridade.
-5. Os valores passam por validação.
-6. Os dados são preparados para o Google Forms.
-7. O sistema registra o envio e protege contra duplicidade.
+1. O sistema prepara e envia um lembrete automático.
+2. Os participantes enviam suas respostas por e-mail.
+3. O sistema identifica as respostas válidas dentro do período definido.
+4. As regras de prioridade determinam qual resposta será utilizada.
+5. Os dados são interpretados e validados.
+6. Em caso de inconsistência, o sistema interrompe o processamento e prepara uma notificação.
+7. Quando os dados são válidos, o sistema realiza a integração com o formulário.
+8. O controle de execução evita registros duplicados.
 
-**Regras de seleção:**
+## Arquitetura do projeto
 
-- Vanda possui prioridade absoluta.
-- Sem resposta da Vanda, é selecionada a resposta mais recente entre os demais participantes.
-- Respostas posteriores ao horário de corte são ignoradas.
-- As produções nunca são somadas ou misturadas.
-
-## Estrutura do projeto
-
-```text
-ENVIO-FLOG-AUTO/
-│
-├── Config.gs
-├── Forms_Service.gs
-├── Producao.gs
-├── Agendamentos.gs
-├── Controle_Envios.gs
-├── WebApp.gs
-├── Utils.gs
-│
-└── README.md
-```
+| Arquivo | Responsabilidade |
+|---|---|
+| `Config.gs` | Configurações gerais |
+| `Forms_Service.gs` | Integração com serviços Google |
+| `Producao.gs` | Interpretação e validação dos dados |
+| `Agendamentos.gs` | Agendamentos e execução automática |
+| `Controle_Envios.gs` | Controle de execução e duplicidade |
+| `WebApp.gs` | Recursos relacionados à aplicação web |
+| `Utils.gs` | Funções auxiliares |
 
 ## Segurança e confiabilidade
 
-O projeto possui mecanismos de proteção:
+O projeto demonstra práticas importantes de desenvolvimento:
 
-- Controle de execução por data.
-- Bloqueio de envios duplicados.
-- Validação dos dados recebidos.
+- Validação de entradas.
+- Tratamento de exceções.
+- Controle de concorrência com `LockService`.
 - Registro de estados de processamento.
-- Tratamento de falhas com necessidade de conferência manual.
-- Modo de simulação para testes sem submissão real.
+- Proteção contra execuções duplicadas.
+- Separação entre configurações e regras de negócio.
+- Simulação de operações antes da execução real.
 
-## Horários de execução
+## Execução e agendamento
 
-| Etapa                   | Horário          |
-| ----------------------- | ---------------- |
-| Lembrete                | 16h15            |
-| Fechamento              | 16h30            |
-| Frequência do acionador | A cada 5 minutos |
-| Dias de execução        | Segunda a sexta  |
+A versão demonstrativa utiliza acionadores temporizados do Google Apps Script.
 
-*Os horários dos acionadores do Google Apps Script são aproximados.*
+Os horários são configuráveis e os acionadores estão sujeitos às variações de execução da plataforma.
 
 ## Status do projeto
 
-**Versão inicial — 1.0**
+**Versão de portfólio — 1.0**
 
-- [x] Estrutura principal desenvolvida.
-- [x] Integração com Google Forms.
-- [x] Leitura de respostas pelo Gmail.
-- [x] Regras de prioridade.
-- [x] Validação de produção.
+- [x] Estrutura modular.
+- [x] Integração com Gmail e Google Forms.
+- [x] Regras de seleção.
+- [x] Validação de dados.
+- [x] Tratamento de respostas inválidas.
 - [x] Proteção contra duplicidade.
 - [x] Testes em modo de simulação.
-- [x] Configuração do acionador.
-- [x] Ativação do modo real.
-- [ ] Confirmação do primeiro ciclo real de operação.
+- [ ] Documentação de instalação da versão demonstrativa.
+- [ ] Demonstração pública com dados fictícios.
 
 ## Desenvolvedor
 
-Projeto desenvolvido por **Welinton Ferraz Franson**, como iniciativa prática de estudo e aplicação de automação com JavaScript e Google Apps Script.
+**Welinton Ferraz Franson**
 
-**Objetivo:** transformar processos operacionais manuais em soluções automatizadas, seguras e eficientes.
+Projeto desenvolvido como iniciativa prática de estudo e aplicação de JavaScript e Google Apps Script.
+
+**Objetivo:** desenvolver soluções que transformem processos manuais em fluxos automatizados, eficientes e seguros.
